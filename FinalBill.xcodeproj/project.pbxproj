@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		2732D19F2D61F5B4003CCDB6 /* .swiftlint.yml in Sources */ = {isa = PBXBuildFile; fileRef = 2732D19E2D61F5B2003CCDB6 /* .swiftlint.yml */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		27376BC22D61F17B00DEEC8B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2732D19E2D61F5B2003CCDB6 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		27376BAF2D61F17900DEEC8B /* FinalBill.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalBill.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27376BC12D61F17B00DEEC8B /* FinalBillTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinalBillTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		27376BCB2D61F17B00DEEC8B /* FinalBillUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinalBillUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -35,14 +40,14 @@
 			path = FinalBill;
 			sourceTree = "<group>";
 		};
-		27376BC42D61F17B00DEEC8B /* FinalBillTests */ = {
+		27376BC42D61F17B00DEEC8B /* UnitTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = FinalBillTests;
+			path = UnitTests;
 			sourceTree = "<group>";
 		};
-		27376BCE2D61F17B00DEEC8B /* FinalBillUITests */ = {
+		27376BCE2D61F17B00DEEC8B /* UITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = FinalBillUITests;
+			path = UITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -75,9 +80,10 @@
 		27376BA62D61F17900DEEC8B = {
 			isa = PBXGroup;
 			children = (
+				2732D19E2D61F5B2003CCDB6 /* .swiftlint.yml */,
 				27376BB12D61F17900DEEC8B /* FinalBill */,
-				27376BC42D61F17B00DEEC8B /* FinalBillTests */,
-				27376BCE2D61F17B00DEEC8B /* FinalBillUITests */,
+				27376BC42D61F17B00DEEC8B /* UnitTests */,
+				27376BCE2D61F17B00DEEC8B /* UITests */,
 				27376BB02D61F17900DEEC8B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -99,6 +105,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 27376BD52D61F17B00DEEC8B /* Build configuration list for PBXNativeTarget "FinalBill" */;
 			buildPhases = (
+				27D90D062D61F2DE005E6CA7 /* Swiftlint */,
 				27376BAB2D61F17900DEEC8B /* Sources */,
 				27376BAC2D61F17900DEEC8B /* Frameworks */,
 				27376BAD2D61F17900DEEC8B /* Resources */,
@@ -131,7 +138,7 @@
 				27376BC32D61F17B00DEEC8B /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				27376BC42D61F17B00DEEC8B /* FinalBillTests */,
+				27376BC42D61F17B00DEEC8B /* UnitTests */,
 			);
 			name = FinalBillTests;
 			packageProductDependencies = (
@@ -154,7 +161,7 @@
 				27376BCD2D61F17B00DEEC8B /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				27376BCE2D61F17B00DEEC8B /* FinalBillUITests */,
+				27376BCE2D61F17B00DEEC8B /* UITests */,
 			);
 			name = FinalBillUITests;
 			packageProductDependencies = (
@@ -231,11 +238,34 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		27D90D062D61F2DE005E6CA7 /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"/opt/homebrew/bin:$PATH\"\n\nCONFIG_FILE=\"${SRCROOT}/.swiftlint.yml\"\n\nif [ -x \"$(command -v swiftlint)\" ]; then\n    if [ -f \"$CONFIG_FILE\" ]; then\n        swiftlint --config \"$CONFIG_FILE\" --fix && swiftlint --config \"$CONFIG_FILE\"\n    else\n        swiftlint --fix && swiftlint\n    fi\nelse\n    echo \"warning: SwiftLint not found, install via Homebrew with 'brew install swiftlint'.\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		27376BAB2D61F17900DEEC8B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2732D19F2D61F5B4003CCDB6 /* .swiftlint.yml in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

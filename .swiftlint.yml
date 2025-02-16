@@ -1,0 +1,13 @@
+disabled_rules:
+  - trailing_whitespace
+  - force_cast
+  - force_unwrapping
+
+opt_in_rules:
+  - empty_count
+  - implicit_return
+
+included:
+  - FinalBill
+
+reporter: "xcode"
